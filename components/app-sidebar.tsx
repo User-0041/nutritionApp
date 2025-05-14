@@ -15,6 +15,7 @@ import {
   Settings,
   Trophy,
   User,
+  UserCog,
   Utensils,
 } from "lucide-react"
 import {
@@ -54,7 +55,7 @@ export function AppSidebar() {
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-2 text-xl font-bold">
             <Activity className="h-6 w-6 text-green-500" />
-            <span className="bg-gradient-to-r from-green-500 to-blue-600 bg-clip-text text-transparent">FitCoach</span>
+            <span className="bg-gradient-to-r from-green-500 to-blue-600 bg-clip-text text-transparent font-extrabold ">Calorize</span>
           </div>
           <SidebarTrigger className="ml-auto" />
         </div>
@@ -181,7 +182,7 @@ export function AppSidebar() {
             <CollapsibleContent>
               <SidebarGroupContent>
                 <SidebarMenu>
-                  <SidebarMenuItem>
+                  {/* <SidebarMenuItem>
                     <SidebarMenuButton asChild isActive={isActive("/coaching/sessions")}>
                       <Link href="/coaching/sessions">
                         <Calendar />
@@ -196,15 +197,15 @@ export function AppSidebar() {
                         <span>Messages</span>
                       </Link>
                     </SidebarMenuButton>
-                  </SidebarMenuItem>
-                  <SidebarMenuItem>
+                  </SidebarMenuItem> */}
+                  {/* <SidebarMenuItem>
                     <SidebarMenuButton asChild isActive={isActive("/coaching/payments")}>
                       <Link href="/coaching/payments">
                         <CreditCard />
                         <span>Payments</span>
                       </Link>
                     </SidebarMenuButton>
-                  </SidebarMenuItem>
+                  </SidebarMenuItem> */}
                   {/* meraih */}
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild isActive={isActive("/Payment")}>
@@ -217,7 +218,7 @@ export function AppSidebar() {
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild isActive={isActive("/BookingConfirmation")}>
                       <Link href="/BookingConfirmation">
-                        <CreditCard />
+                        <Calendar />
                         <span>Booking Confirmation </span>
                       </Link>
                     </SidebarMenuButton>
@@ -225,7 +226,7 @@ export function AppSidebar() {
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild isActive={isActive("/CoachReservation")}>
                       <Link href="/CoachReservation">
-                        <CreditCard />
+                        <Calendar />
                         <span>coach Reservation</span>
                       </Link>
                     </SidebarMenuButton>
@@ -236,7 +237,11 @@ export function AppSidebar() {
           </SidebarGroup>
         </Collapsible>
 
-        <Collapsible>
+        <Collapsible
+          open={openGroups.feedback}
+          onOpenChange={(open) => setOpenGroups({ ...openGroups, feedback: open })}
+          className="group/collapsible"
+        >
         <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger className="flex w-full items-center">
@@ -287,7 +292,7 @@ export function AppSidebar() {
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild isActive={isActive("/nutrition/meal-plans")}>
                       <Link href="/admin/manageCoaches">
-                        <Utensils />
+                        <UserCog />
                         <span>Manage Coaches</span>
                       </Link>
                     </SidebarMenuButton>
